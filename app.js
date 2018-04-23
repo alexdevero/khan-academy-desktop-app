@@ -1,5 +1,7 @@
 const { app, BrowserWindow, dialog, Menu, platform, session, Tray } = require('electron') // http://electron.atom.io/docs/api
 
+const path = require('path');
+
 let window = null
 let appIcon = null
 let trayIcon = null
@@ -13,9 +15,11 @@ if (process.platform === 'win32') {
 
 // Determine appropriate icon for platform
 if (platform == 'darwin') {
-  trayIcon = './assets/khan-academy-logo-leaf.png'
+  trayIcon = path.join(__dirname, 'assets/khan-academy-logo-leaf.png')
 } else if (platform == 'win32') {
-  trayIcon = './assets/khan-academy-logo-leaf.ico'
+  trayIcon = path.join(__dirname, 'assets/khan-academy-logo-leaf.ico')
+} else {
+  trayIcon = path.join(__dirname, 'assets/khan-academy-logo-leaf.ico')
 }
 
 // session.defaultSession.webRequest.onBeforeSendHeaders((details, callback) => {
@@ -134,7 +138,7 @@ app.once('ready', () => {
   Menu.setApplicationMenu(menu)
 
   // Create tray icon
-  appIcon = new Tray('./assets/khan-academy-logo-leaf.png')
+  appIcon = new Tray(trayIcon)
 
   // Create RightClick context menu for tray icon
   const contextMenu = Menu.buildFromTemplate([
