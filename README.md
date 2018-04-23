@@ -62,14 +62,54 @@ or
 yarn run start
 ```
 
-#### Build the app
+#### Build the app for all platforms
 
 ```
-npm run package
+npm run package:all
 ```
 or
 ```
-yarn run package
+yarn run package:all
+```
+
+#### Build the app for Windows
+
+```
+npm run package:win
+```
+or
+```
+yarn run package:win
+```
+
+#### Build the app for OSX
+
+```
+npm run package:osx
+```
+or
+```
+yarn run package:osx
+```
+
+#### Build the app for Linux
+
+```
+npm run package:linux
+```
+or
+```
+yarn run package:linux
+```
+
+#### Build the app for Mac App Store
+
+```
+npm run package:macappstore
+```
+or
+```
+yarn run package:macappstore
 ```
 
 ### Code of Conduct
