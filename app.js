@@ -1,6 +1,7 @@
-const {app, BrowserWindow, dialog, Menu, session} = require('electron') // http://electron.atom.io/docs/api
+const { app, BrowserWindow, dialog, Menu, platform, session, Tray } = require('electron') // http://electron.atom.io/docs/api
 
 let window = null
+let appIcon = null
 let trayIcon = null
 
 // Temporary fix broken high-dpi scale factor on Windows (125% scaling)
@@ -12,9 +13,9 @@ if (process.platform === 'win32') {
 
 // Determine appropriate icon for platform
 if (platform == 'darwin') {
-  trayIcon = path.join(__dirname, 'src', 'assets/grease-the-groove-icon.png')
+  trayIcon = './assets/khan-academy-logo-leaf.png'
 } else if (platform == 'win32') {
-  trayIcon = path.join(__dirname, 'src', 'assets/grease-the-groove-icon.ico')
+  trayIcon = './assets/khan-academy-logo-leaf.ico'
 }
 
 // session.defaultSession.webRequest.onBeforeSendHeaders((details, callback) => {
@@ -131,6 +132,61 @@ app.once('ready', () => {
 
   // Set menu to menuTemplate
   Menu.setApplicationMenu(menu)
+
+  // Create tray icon
+  appIcon = new Tray('./assets/khan-academy-logo-leaf.png')
+
+  // Create RightClick context menu for tray icon
+  const contextMenu = Menu.buildFromTemplate([
+    {
+      label: 'Restore app',
+      click: () => {
+        window.show()
+      }
+    },
+    {
+      label: 'Close app',
+      click: () => {
+        window.close()
+      }
+    }
+  ])
+
+  // Set title for tray icon
+  appIcon.setTitle('Khan Academy')
+
+  // Set toot tip for tray icon
+  appIcon.setToolTip('Khan Academy')
+
+  // Create RightClick context menu
+  appIcon.setContextMenu(contextMenu)
+
+  // Always highlight the tray icon
+  appIcon.setHighlightMode('always')
+
+  // The tray icon is not destroyed
+  appIcon.isDestroyed(false)
+
+  // Restore (open) app after clicking on tray icon
+  // if window is already open, minimize it to system tray
+  appIcon.on('click', () => {
+    window.isVisible() ? window.hide() : window.show()
+  })
+
+  // Emitted when the window is closed.
+  window.on('closed', function() {
+    // Dereference the window object, usually you would store windows
+    // in an array if your app supports multi windows, this is the time
+    // when you should delete the corresponding element.
+    window = null
+  })
+
+  // Minimize window to system tray
+  window.on('minimize',function(event){
+      event.preventDefault()
+      // window.minimize()
+      window.hide()
+  })
 
   // Show window when page is ready
   window.once('ready-to-show', () => {
