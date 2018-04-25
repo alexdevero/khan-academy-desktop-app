@@ -1,6 +1,6 @@
 {
   "name": "khan-academy-desktop-app",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "A simple Khan Academy desktop app build with electron.",
   "license": "MIT",
   "private": false,
@@ -34,6 +34,8 @@
     "electron",
     "electron-app",
     "javascript",
+    "khan",
+    "khan-academy",
     "learning"
   ],
   "engines": {
