@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://cdn.rawgit.com/alexdevero/khan-academy-desktop-app/master/assets/khan-academy-logo.png" width="135" align="center">
+  <img src="https://cdn.rawgit.com/alexdevero/khan-academy-desktop-app/master/docs/khan-academy-logo.png" width="135" align="center">
   <br>
   <br>
 </p>
@@ -19,11 +19,11 @@
 
 A simple Khan Academy desktop app build with electron.
 
-<!-- <p align="center">
+<p align="center">
   <img src="https://cdn.rawgit.com/alexdevero/khan-academy-desktop-app/master/docs/khan-academy-desktop-app-screen.png" width="800">
   <br>
   <br>
-</p> -->
+</p>
 
 ### Table of contents
 
