@@ -32,7 +32,7 @@ if (platform == 'darwin') {
 app.once('ready', () => {
   // Create a new window
   window = new BrowserWindow({
-    width: 1024,
+    width: 1366,
     height: 768,
     icon: trayIcon,
     // Don't show the window until it ready, this prevents any white flickering
