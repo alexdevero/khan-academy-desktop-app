@@ -1,6 +1,6 @@
 const { app, BrowserWindow, dialog, Menu, platform, session, Tray } = require('electron') // http://electron.atom.io/docs/api
 
-const path = require('path');
+const path = require('path')
 
 let window = null
 let appIcon = null
@@ -15,11 +15,11 @@ if (process.platform === 'win32') {
 
 // Determine appropriate icon for platform
 if (platform == 'darwin') {
-  trayIcon = path.join(__dirname, 'assets/khan-academy-logo-leaf.png')
+  trayIcon = path.join(__dirname, 'assets/khan-academy-logo-new.png')
 } else if (platform == 'win32') {
-  trayIcon = path.join(__dirname, 'assets/khan-academy-logo-leaf.ico')
+  trayIcon = path.join(__dirname, 'assets/khan-academy-logo-new.ico')
 } else {
-  trayIcon = path.join(__dirname, 'assets/khan-academy-logo-leaf.ico')
+  trayIcon = path.join(__dirname, 'assets/khan-academy-logo-new.ico')
 }
 
 // session.defaultSession.webRequest.onBeforeSendHeaders((details, callback) => {

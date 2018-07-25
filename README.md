@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://cdn.rawgit.com/alexdevero/khan-academy-desktop-app/master/docs/khan-academy-logo.png" width="135" align="center">
+  <img src="https://cdn.rawgit.com/alexdevero/khan-academy-desktop-app/master/assets/khan-academy-logo-new.png" width="135" align="center">
   <br>
   <br>
 </p>
